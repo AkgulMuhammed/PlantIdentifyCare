@@ -1,17 +1,15 @@
 import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:plant_identify_care/constants/app_colors.dart';
 import 'package:plant_identify_care/models/menu.dart';
 import 'package:plant_identify_care/utils/rive_utils.dart';
-import 'package:plant_identify_care/views/home/home_screen.dart';
-import 'package:rive/rive.dart';
 import 'components/btm_nav_item.dart';
 import 'components/menu_btn.dart';
 import 'components/side_bar.dart';
+import 'package:rive/rive.dart';
 
 class EntryPoint extends StatefulWidget {
-  const EntryPoint({super.key});
+  const EntryPoint({Key? key}) : super(key: key);
 
   @override
   State<EntryPoint> createState() => _EntryPointState();
@@ -38,6 +36,8 @@ class _EntryPointState extends State<EntryPoint>
   late Animation<double> scalAnimation;
   late Animation<double> animation;
 
+  final PageController _pageController = PageController(initialPage: 0);
+
   @override
   void initState() {
     super.initState();
@@ -47,6 +47,7 @@ class _EntryPointState extends State<EntryPoint>
   @override
   void dispose() {
     _animationController.dispose();
+    _pageController.dispose();
     super.dispose();
   }
 
@@ -93,7 +94,23 @@ class _EntryPointState extends State<EntryPoint>
       curve: Curves.fastOutSlowIn,
       left: isSideBarOpen ? 0 : -288,
       top: 0,
-      child: const SideBar(),
+      child: SideBar(onMenuSelected: (menu) {
+        setState(() {
+          selectedSideMenu = menu;
+
+          int indexInBottomNav = bottomNavItems
+              .indexWhere((bottomNavItem) => bottomNavItem.title == menu.title);
+          if (indexInBottomNav != -1) {
+            selectedBottonNav = bottomNavItems[indexInBottomNav];
+            _pageController.jumpToPage(indexInBottomNav);
+          } else {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => menu.page),
+            );
+          }
+        });
+      }),
     );
   }
 
@@ -111,7 +128,14 @@ class _EntryPointState extends State<EntryPoint>
             borderRadius: const BorderRadius.all(
               Radius.circular(24),
             ),
-            child: HomeScreen(isSideBarOpen: isSideBarOpen),
+            child: PageView.builder(
+              controller: _pageController,
+              physics: const NeverScrollableScrollPhysics(),
+              itemCount: bottomNavItems.length,
+              itemBuilder: (context, index) {
+                return bottomNavItems[index].page;
+              },
+            ),
           ),
         ),
       ),
@@ -195,8 +219,7 @@ class _EntryPointState extends State<EntryPoint>
           press: () {
             RiveUtils.chnageSMIBoolState(navBar.rive.status!);
             updateSelectedBtmNav(navBar);
-            //Burada Bu Yöntemi Kullanamadım çünkü bu şekilde navbar çalışmaz :)
-            //Navigator.pushNamed(context, navBar.routeName);
+            _pageController.jumpToPage(index);
           },
           riveOnInit: (artboard) {
             navBar.rive.status = RiveUtils.getRiveInput(artboard,

@@ -3,15 +3,15 @@ import '../../constants/constants.dart';
 import '../../services/chatbot_service.dart';
 import 'components/chat_massage.dart';
 
-
 class PlantDoctor extends StatefulWidget {
   const PlantDoctor({Key? key}) : super(key: key);
 
   @override
-  _PlantDoctorState createState() => _PlantDoctorState();
+  PlantDoctorState createState() => PlantDoctorState();
 }
 
-class _PlantDoctorState extends State<PlantDoctor> with TickerProviderStateMixin {
+class PlantDoctorState extends State<PlantDoctor>
+    with TickerProviderStateMixin {
   final TextEditingController _controller = TextEditingController();
   final List<ChatMassage> _massages = [];
   final ChatbotService _chatbotService = ChatbotService();
@@ -39,8 +39,10 @@ class _PlantDoctorState extends State<PlantDoctor> with TickerProviderStateMixin
       return;
     }
 
-    final ChatMassage userMassage =
-        ChatMassage(text: _controller.text, sender: Constants.userSender, isResponse: false);
+    final ChatMassage userMassage = ChatMassage(
+        text: _controller.text,
+        sender: Constants.userSender,
+        isResponse: false);
     setState(() {
       _massages.insert(0, userMassage);
       _isSendingMessage = true;
@@ -51,15 +53,17 @@ class _PlantDoctorState extends State<PlantDoctor> with TickerProviderStateMixin
     try {
       final String botReply = await _chatbotService.getReply(userMassage.text);
 
-      final ChatMassage botMassage =
-          ChatMassage(text: botReply, sender: Constants.botSender, isResponse: true);
+      final ChatMassage botMassage = ChatMassage(
+          text: botReply, sender: Constants.botSender, isResponse: true);
       setState(() {
         _massages.insert(0, botMassage);
         _isSendingMessage = false;
       });
     } catch (e) {
-      final ChatMassage errorMassage =
-          ChatMassage(text: "${Constants.errorMessage}$e", sender: Constants.errorSender, isResponse: true);
+      final ChatMassage errorMassage = ChatMassage(
+          text: "${Constants.errorMessage}$e",
+          sender: Constants.errorSender,
+          isResponse: true);
       setState(() {
         _massages.insert(0, errorMassage);
         _isSendingMessage = false;
@@ -69,8 +73,8 @@ class _PlantDoctorState extends State<PlantDoctor> with TickerProviderStateMixin
 
   Widget _buildTextComposer() {
     return Container(
-      padding: const EdgeInsets.only(left: 15,right: 15),
-      margin: const EdgeInsets.only(left: 20,right: 20,top: 5),
+      padding: const EdgeInsets.only(left: 15, right: 15),
+      margin: const EdgeInsets.only(left: 20, right: 20, top: 5),
       decoration: BoxDecoration(
         border: Border.all(color: Colors.grey),
         borderRadius: BorderRadius.circular(18.0),
@@ -88,16 +92,17 @@ class _PlantDoctorState extends State<PlantDoctor> with TickerProviderStateMixin
           ),
           IconButton(
             onPressed: _isSendingMessage ? null : _sendMassage,
-            icon: _isSendingMessage 
-              ? AnimatedBuilder(
-                  animation: _animationController,
-                  builder: (_, __) {
-                    final value = _animationController.value;
-                    final full = value <= 0.33 ? '.' : (value <= 0.66 ? '..' : '...');
-                    return Text("${Constants.searchingMessage}$full");
-                  },
-                )
-              : const Icon(Icons.send),
+            icon: _isSendingMessage
+                ? AnimatedBuilder(
+                    animation: _animationController,
+                    builder: (_, __) {
+                      final value = _animationController.value;
+                      final full =
+                          value <= 0.33 ? '.' : (value <= 0.66 ? '..' : '...');
+                      return Text("${Constants.searchingMessage}$full");
+                    },
+                  )
+                : const Icon(Icons.send),
           )
         ],
       ),
@@ -108,6 +113,7 @@ class _PlantDoctorState extends State<PlantDoctor> with TickerProviderStateMixin
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+      
         title: const Text(Constants.botSender),
       ),
       body: SafeArea(

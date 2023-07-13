@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "706343572374",
+    "project_id": "plant-identify-care",
+    "storage_bucket": "plant-identify-care.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:706343572374:android:2086f36cfd8e77107ac3b7",
+        "android_client_info": {
+          "package_name": "com.example.plant_identify_care"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "706343572374-o8n5f01v9g7vg9irus1e60r8lau3g3ub.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBirTaZ_SUz0Lx8Ehr2N2vyCwzj9DBad0Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "706343572374-o8n5f01v9g7vg9irus1e60r8lau3g3ub.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

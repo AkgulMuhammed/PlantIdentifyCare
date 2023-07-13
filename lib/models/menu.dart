@@ -1,11 +1,17 @@
+import 'package:flutter/material.dart';
 import 'package:plant_identify_care/models/rive_model.dart';
+import 'package:plant_identify_care/views/home/home_screen.dart';
+import 'package:plant_identify_care/views/plantDoctor/plant_doctor_screen.dart';
+import 'package:plant_identify_care/views/plant_heal.dart';
+import 'package:plant_identify_care/views/profile_page.dart';
+import 'package:plant_identify_care/views/search_screen.dart';
 
 class Menu {
   final String title;
   final RiveModel rive;
-  final String routeName;
+  final Widget page;
 
-  Menu({required this.title, required this.rive, required this.routeName});
+  Menu({required this.title, required this.rive, required this.page});
 }
 
 List<Menu> sidebarMenus = [
@@ -15,7 +21,7 @@ List<Menu> sidebarMenus = [
         src: "assets/RiveAssets/icons.riv",
         artboard: "HOME",
         stateMachineName: "HOME_interactivity"),
-    routeName: "/home",
+    page: const HomeScreen(isSideBarOpen: false),
   ),
   Menu(
     title: "Search",
@@ -23,34 +29,34 @@ List<Menu> sidebarMenus = [
         src: "assets/RiveAssets/icons.riv",
         artboard: "SEARCH",
         stateMachineName: "SEARCH_Interactivity"),
-    routeName: "/search",
+    page: const SearchScreen(),
   ),
   Menu(
-    title: "Favorites",
+    title: "Profile",
     rive: RiveModel(
         src: "assets/RiveAssets/icons.riv",
-        artboard: "LIKE/STAR",
-        stateMachineName: "STAR_Interactivity"),
-    routeName: "/favorites",
-  ),
-  Menu(
-    title: "Help",
-    rive: RiveModel(
-        src: "assets/RiveAssets/icons.riv",
-        artboard: "CHAT",
-        stateMachineName: "CHAT_Interactivity"),
-    routeName: "/help",
+        artboard: "USER",
+        stateMachineName: "USER_Interactivity"),
+    page: const ProfilePage(),
   ),
 ];
 
 List<Menu> sidebarMenus2 = [
+  Menu(
+    title: "Bitki Doktoru",
+    rive: RiveModel(
+        src: "assets/RiveAssets/icons.riv",
+        artboard: "CHAT",
+        stateMachineName: "CHAT_Interactivity"),
+    page: const PlantDoctor(),
+  ),
   Menu(
     title: "History",
     rive: RiveModel(
         src: "assets/RiveAssets/icons.riv",
         artboard: "TIMER",
         stateMachineName: "TIMER_Interactivity"),
-    routeName: "/history",
+    page: const Center(child: Text('History Page')),
   ),
   Menu(
     title: "Notifications",
@@ -58,7 +64,7 @@ List<Menu> sidebarMenus2 = [
         src: "assets/RiveAssets/icons.riv",
         artboard: "BELL",
         stateMachineName: "BELL_Interactivity"),
-    routeName: "/notifications",
+    page: const Center(child: Text('Notifications Page')),
   ),
 ];
 
@@ -69,7 +75,7 @@ List<Menu> bottomNavItems = [
         src: "assets/RiveAssets/icons.riv",
         artboard: "HOME",
         stateMachineName: "HOME_interactivity"),
-    routeName: "/home",
+    page: const HomeScreen(isSideBarOpen: false),
   ),
   Menu(
     title: "Search",
@@ -77,23 +83,15 @@ List<Menu> bottomNavItems = [
         src: "assets/RiveAssets/icons.riv",
         artboard: "SEARCH",
         stateMachineName: "SEARCH_Interactivity"),
-    routeName: "/search",
+    page: const SearchScreen(),
   ),
   Menu(
-    title: "Timer",
+    title: "Add",
     rive: RiveModel(
-        src: "assets/RiveAssets/icons.riv",
-        artboard: "TIMER",
-        stateMachineName: "TIMER_Interactivity"),
-    routeName: "/timer",
-  ),
-  Menu(
-    title: "Notification",
-    rive: RiveModel(
-        src: "assets/RiveAssets/icons.riv",
-        artboard: "BELL",
-        stateMachineName: "BELL_Interactivity"),
-    routeName: "/notification",
+        src: "assets/RiveAssets/add_icon_demo.riv",
+        artboard: "New Artboard",
+        stateMachineName: "State Machine 1"),
+    page: const PlantHeal(),
   ),
   Menu(
     title: "Profile",
@@ -101,6 +99,6 @@ List<Menu> bottomNavItems = [
         src: "assets/RiveAssets/icons.riv",
         artboard: "USER",
         stateMachineName: "USER_Interactivity"),
-    routeName: "/profile",
+    page: const ProfilePage(),
   ),
 ];
