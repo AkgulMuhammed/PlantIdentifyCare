@@ -2,9 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:plant_identify_care/constants/app_colors.dart';
 
-class SearchBox extends StatelessWidget {
-  const SearchBox({Key? key}) : super(key: key);
+class SearchBox extends StatefulWidget {
+  final TextEditingController controller;
+  final controlerFirebase;
+  const SearchBox({Key? key, required this.controller, this.controlerFirebase})
+      : super(key: key);
 
+  @override
+  State<SearchBox> createState() => _SearchBoxState();
+}
+
+class _SearchBoxState extends State<SearchBox> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -27,7 +35,12 @@ class SearchBox extends StatelessWidget {
         children: <Widget>[
           Expanded(
             child: TextField(
-              onChanged: (value) {},
+              controller: widget.controller,
+              onChanged: (query) {
+                setState(() {
+                  widget.controlerFirebase.searchFlowers(query);
+                });
+              },
               decoration: InputDecoration(
                 hintText: "Ara",
                 hintStyle: TextStyle(

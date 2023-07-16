@@ -72,7 +72,7 @@ class RecommendsPlantCard extends StatelessWidget {
         width: size.width * 0.4,
         child: Column(
           children: <Widget>[
-            isAsset ? Image.asset(image) : CustomImageNetwork(image),
+            isAsset ? Image.asset(image) : CustomImageNetwork(image: image),
             Container(
               padding: const EdgeInsets.all(kDefaultPadding / 2),
               decoration: BoxDecoration(

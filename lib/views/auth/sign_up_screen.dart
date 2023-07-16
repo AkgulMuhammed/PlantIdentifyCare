@@ -43,8 +43,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
         User? user = FirebaseAuth.instance.currentUser;
         await user!.updateDisplayName("${_firstName.text} ${_lastName.text}");
 
-        // kullanıcının adını güncelledikten sonra durum güncelleme
-        setState(() {});
+        
+  
 
         await FirebaseFirestore.instance
             .collection('users')

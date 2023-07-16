@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
+import 'package:plant_identify_care/views/auth/auth_screen.dart';
 import 'package:plant_identify_care/views/entryPoint/entry_point.dart';
 
 
@@ -24,7 +25,7 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 
   route() {
-  Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const EntryPoint()));
+  Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const AuthScreen()));
 }
 
 

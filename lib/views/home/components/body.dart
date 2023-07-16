@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:plant_identify_care/models/model_firebase.dart';
 
+import '../../../constants/app_colors.dart';
 import 'featurred_plants.dart';
 import 'header_with_seachbox.dart';
 import 'recomend_plants.dart';
@@ -26,7 +27,7 @@ class Body extends StatelessWidget {
             RecommendsPlants(flowersList: flowersList),
             TitleWithMoreBtn(title: "Öne Çıkan Bitkiler", press: () {}),
             FeaturedPlants(flowersList: flowersList),
-            //const SizedBox(height: kDefaultPadding),
+            const SizedBox(height: kDefaultPadding),
           ],
         ),
       ),

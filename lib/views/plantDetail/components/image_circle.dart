@@ -18,7 +18,7 @@ class ImageCircle extends StatelessWidget {
           color: Colors.white,
           border: Border.all(
               color: kTertiaryColor, width: 15)),
-      child: CustomImageNetwork(image, isOval: true),
+      child: CustomImageNetwork(image: image, isOval: true),
   );
   }
 }

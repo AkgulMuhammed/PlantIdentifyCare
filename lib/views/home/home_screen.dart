@@ -48,7 +48,7 @@ class HomeScreenState extends State<HomeScreen> {
         children: [
           Icon(
             Icons.my_library_books_rounded,
-            color: Colors.blue,
+            color: kPrimaryColor,
             size: 50,
           ),
           SizedBox(height: 20),

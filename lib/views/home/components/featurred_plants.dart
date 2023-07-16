@@ -6,29 +6,31 @@ import 'package:plant_identify_care/views/plantDetail/plant_detail_screen.dart';
 
 class FeaturedPlants extends StatelessWidget {
   final List<ModelFirebase> flowersList;
+  final int startIndex; 
   const FeaturedPlants({
     Key? key,
     required this.flowersList,
+    this.startIndex = 4, 
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 340,
+      height: 200,
       child: ListView.builder(
         primary: true,
         shrinkWrap: true,
-        itemCount: flowersList.length,
+        itemCount: flowersList.length - startIndex, 
         scrollDirection: Axis.horizontal,
         itemBuilder: (BuildContext context, int index) {
           return FeaturePlantCard(
-            image: flowersList[index].image,
+            image: flowersList[index + startIndex].image, 
             press: () {
               Navigator.push(
                 context,
                 MaterialPageRoute(
                   builder: (context) =>
-                      PlantDetails(detailsFlower: flowersList[index]),
+                      PlantDetails(detailsFlower: flowersList[index + startIndex]), 
                 ),
               );
             },
@@ -38,6 +40,7 @@ class FeaturedPlants extends StatelessWidget {
     );
   }
 }
+
 
 class FeaturePlantCard extends StatelessWidget {
   const FeaturePlantCard({
@@ -65,8 +68,8 @@ class FeaturePlantCard extends StatelessWidget {
         child: ClipRRect(
             borderRadius: BorderRadius.circular(10),
             child: CustomImageNetwork(
-              image,
-              isFeaturedPlants: true,
+              image:image,
+             
             )),
       ),
     );

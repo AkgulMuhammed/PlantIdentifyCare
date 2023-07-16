@@ -1,6 +1,11 @@
+
+
 import 'package:flutter/material.dart';
-import '../home/components/recomend_plants.dart';
-import 'components/search_box.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart';
+import 'package:plant_identify_care/constants/app_colors.dart';
+import 'package:plant_identify_care/services/firebase_controller.dart';
+import 'package:plant_identify_care/views/plantDetail/plant_detail_screen.dart';
 
 class SearchScreen extends StatefulWidget {
   const SearchScreen({Key? key}) : super(key: key);
@@ -10,96 +15,167 @@ class SearchScreen extends StatefulWidget {
 }
 
 class _SearchScreenState extends State<SearchScreen> {
-  final List<Map<String, dynamic>> plantList = [
-    {
-      'image': 'assets/images/image_3.png',
-      'title': 'Samantha',
-      'country': 'Russia',
-      'price': 440,
-    },
-    {
-      'image': 'assets/images/image_3.png',
-      'title': 'Samantha',
-      'country': 'Russia',
-      'price': 440,
-    },
-    {
-      'image': 'assets/images/image_3.png',
-      'title': 'Samantha',
-      'country': 'Russia',
-      'price': 440,
-    },
-    {
-      'image': 'assets/images/image_3.png',
-      'title': 'Samantha',
-      'country': 'Russia',
-      'price': 440,
-    },
-    {
-      'image': 'assets/images/image_3.png',
-      'title': 'Samantha',
-      'country': 'Russia',
-      'price': 440,
-    },
-    {
-      'image': 'assets/images/image_3.png',
-      'title': 'Samantha',
-      'country': 'Russia',
-      'price': 440,
-    },
-    {
-      'image': 'assets/images/image_3.png',
-      'title': 'Samantha',
-      'country': 'Russia',
-      'price': 440,
-    },
-    {
-      'image': 'assets/images/image_3.png',
-      'title': 'Samantha',
-      'country': 'Russia',
-      'price': 440,
-    },
-  ];
+  final TextEditingController textEditingController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Padding(
-          padding: EdgeInsets.only(left: 30, top: 10),
-          child: SearchBox(),
-        ),
-        toolbarHeight: 70,
-      ),
-      body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.only(right: 15),
-          child: SizedBox(
-            child: Padding(
-              padding: const EdgeInsets.only(right: 20),
-              child: SizedBox(
-                child: GridView.builder(
-                  //physics: const NeverScrollableScrollPhysics(),
-                  primary: true,
-                  //shrinkWrap: true,
-                  itemCount: plantList.length,
-                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 2, childAspectRatio: 0.64, mainAxisSpacing: 0.9),
-                  itemBuilder: (context, index) => RecommendsPlantCard(
-                    isAsset: true,
-                    latinceName: "",
-                    image: plantList[index]['image'],
-                    title: plantList[index]['title'],
-                    //country: plantList[index]['country'],
-                    //price: plantList[index]['price'],
-                    press: () {},
+    return GetBuilder<FirebaseController>(
+      init: FirebaseController(),
+      builder: (controller) {
+        return Scaffold(
+          appBar: AppBar(
+            title: _appBar(controller),
+            toolbarHeight: 70,
+          ),
+          body: Obx(
+            () => controller.isLoading.value
+                ? const Center(child: CircularProgressIndicator())
+                : controller.comeToFlowers.isEmpty
+                    ? _buildNoDataWidget(context)
+                    : Obx(
+                        () {
+                          if (controller.isLoading.value) {
+                            return const Center(
+                              child: CircularProgressIndicator(),
+                            );
+                          }
+
+                          final filteredList =
+                              textEditingController.text.isEmpty
+                                  ? controller.comeToFlowers
+                                  : controller.filteredFlowers;
+
+                          return ListView.builder(
+                            itemCount: filteredList.length,
+                            itemBuilder: (context, index) {
+                              final flower = filteredList[index];
+
+                              return Card(
+                                
+                                child: ListTile(
+                                  onTap: () {
+                                    Navigator.of(context)
+                                        .push(MaterialPageRoute(
+                                      builder: (context) =>
+                                          PlantDetails(detailsFlower: flower),
+                                    ));
+                                  },
+                                  title: Text(flower.turkishName),
+                                  subtitle: Text(flower.latinceName),
+                                  leading: CircleAvatar(
+                                      child: CustomImage(image: flower.image)),
+                                ),
+                              ); 
+                            },
+                          );
+                        },
+                      ),
+          ),
+        );
+      },
+    );
+  }
+
+  Padding _appBar(FirebaseController controller) {
+    return Padding(
+        padding: const EdgeInsets.only(left: 30, top: 10),
+        child: Container(
+          alignment: Alignment.center,
+          margin: const EdgeInsets.symmetric(horizontal: 20),
+          padding: const EdgeInsets.symmetric(horizontal: 20),
+          height: 54,
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(20),
+            boxShadow: [
+              BoxShadow(
+                offset: const Offset(0, 10),
+                blurRadius: 50,
+                color: kPrimaryColor.withOpacity(0.23),
+              ),
+            ],
+          ),
+          child: Row(
+            children: <Widget>[
+              Expanded(
+                child: TextField(
+                  controller: textEditingController,
+                  onChanged: (query) {
+                    setState(() {
+                      controller.searchFlowers(query);
+                    });
+                  },
+                  decoration: InputDecoration(
+                    hintText: "Ara",
+                    hintStyle: TextStyle(
+                      color: Colors.black.withOpacity(0.5),
+                    ),
+                    enabledBorder: InputBorder.none,
+                    focusedBorder: InputBorder.none,
                   ),
                 ),
               ),
-            ),
+              SvgPicture.asset("assets/icons/search.svg"),
+            ],
           ),
-        ),
+        ));
+  }
+
+  Widget _buildNoDataWidget(BuildContext context) {
+    return const Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Icon(
+            Icons.my_library_books_rounded,
+            color: Colors.blue,
+            size: 50,
+          ),
+          SizedBox(height: 20),
+          Text(
+            "Kayıtlı bir Veri  yok ",
+          ),
+        ],
       ),
+    );
+  }
+}
+
+class CustomImage extends StatelessWidget {
+  final String? image;
+
+  const CustomImage({
+    required this.image,
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    if (image == null) {
+      return ClipOval(child: Image.asset("assets/images/bottom_img_1.png"));
+    }
+    return GetBuilder<FirebaseController>(
+      init: FirebaseController(), 
+      id: image,
+      builder: (controller) {
+        return FutureBuilder<String>(
+          future: controller.getImageURL(image!),
+          builder: (BuildContext context, AsyncSnapshot<String> snapshot) {
+            if (snapshot.connectionState == ConnectionState.waiting) {
+              return const Center(child: CircularProgressIndicator());
+            } else if (snapshot.hasError) {
+              return Text('Error: ${snapshot.error}');
+            } else if (snapshot.hasData && snapshot.data != null) {
+              return Image.network(
+                snapshot.data!,
+                fit: BoxFit.cover,
+              );
+            } else {
+              return const Text('Image not available');
+            }
+          },
+        );
+      },
     );
   }
 }

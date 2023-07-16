@@ -31,7 +31,7 @@ Future<bool> checkFirstTime() async {
           return const CircularProgressIndicator();
         } else {
           if (snapshot.data == true) {
-            return const OnBordingScreen(); // İlk defa uygulama açıldıysa onboarding ekranını göster
+            return const OnBordingScreen(); 
           } else {
             return Scaffold(
               body: StreamBuilder<User?>(
@@ -41,7 +41,7 @@ Future<bool> checkFirstTime() async {
                     return const CircularProgressIndicator();
                   } else {
                     if (snapshot.hasData) {
-                      return  EntryPoint();
+                      return  const EntryPoint();
                     } else {
                       return const LoginAndSignup();
                     }

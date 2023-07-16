@@ -119,6 +119,7 @@ class _SideBarState extends State<SideBar> {
                       ))
                   .toList(),
               const SizedBox(height: 30),
+              Expanded(child: Container()),
               ElevatedButton(
                 onPressed: () {
                   FirebaseAuth.instance.signOut().then((value) =>
@@ -151,13 +152,16 @@ class _SideBarState extends State<SideBar> {
                         .copyWith(color: Colors.white70),
                   ),
                   const SizedBox(height: 5),
-                  Text(
-                    'OUA Bootcamp Projesidir\nCoded By Muhammed Akgül',
-                    textAlign: TextAlign.center,
-                    style: Theme.of(context)
-                        .textTheme
-                        .bodySmall!
-                        .copyWith(color: Colors.white70),
+                  Padding(
+                    padding: const EdgeInsets.only(bottom: 30),
+                    child: Text(
+                      'OUA Bootcamp Projesidir\nCoded By Muhammed Akgül',
+                      textAlign: TextAlign.center,
+                      style: Theme.of(context)
+                          .textTheme
+                          .bodySmall!
+                          .copyWith(color: Colors.white70),
+                    ),
                   ),
                 ],
               ),

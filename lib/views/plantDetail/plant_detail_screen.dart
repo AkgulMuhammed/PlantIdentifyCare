@@ -1,3 +1,5 @@
+
+
 import 'package:flutter/material.dart';
 import 'package:plant_identify_care/models/model_firebase.dart';
 import 'package:plant_identify_care/views/plantDetail/components/background_container.dart';
@@ -30,11 +32,15 @@ class _PlantDetailsState extends State<PlantDetails> {
                 children: [
                   const SizedBox(height: 25),
                   const AppTitle(),
-                  // SelectionButtons(),
+                  
                   const SizedBox(height: 20),
-                  ImageCircle(image: detail.image),
+                  detail.image == null
+                      ? CircleAvatar(
+                          child: Image.asset("assets/images/bottom_img_1.png"))
+                      : ImageCircle(image: detail.image),
                   PlantTitle(title: detail.turkishName),
-                   PlantDescription(subTitle: detail.subTitle), // açıklaması eklenecek
+                  PlantDescription(
+                      subTitle: detail.subTitle), 
                   const SizedBox(height: 20),
                   const GreyLine(),
                   const SizedBox(height: 20),

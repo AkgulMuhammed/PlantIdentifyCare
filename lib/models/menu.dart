@@ -37,7 +37,7 @@ List<Menu> sidebarMenus = [
         src: "assets/RiveAssets/icons.riv",
         artboard: "USER",
         stateMachineName: "USER_Interactivity"),
-    page: const ProfilePage(),
+    page:  ProfileScreen(),
   ),
 ];
 
@@ -50,22 +50,7 @@ List<Menu> sidebarMenus2 = [
         stateMachineName: "CHAT_Interactivity"),
     page: const PlantDoctor(),
   ),
-  Menu(
-    title: "History",
-    rive: RiveModel(
-        src: "assets/RiveAssets/icons.riv",
-        artboard: "TIMER",
-        stateMachineName: "TIMER_Interactivity"),
-    page: const Center(child: Text('History Page')),
-  ),
-  Menu(
-    title: "Notifications",
-    rive: RiveModel(
-        src: "assets/RiveAssets/icons.riv",
-        artboard: "BELL",
-        stateMachineName: "BELL_Interactivity"),
-    page: const Center(child: Text('Notifications Page')),
-  ),
+  
 ];
 
 List<Menu> bottomNavItems = [
@@ -99,6 +84,6 @@ List<Menu> bottomNavItems = [
         src: "assets/RiveAssets/icons.riv",
         artboard: "USER",
         stateMachineName: "USER_Interactivity"),
-    page: const ProfilePage(),
+    page:  ProfileScreen(),
   ),
 ];

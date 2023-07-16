@@ -2,11 +2,13 @@ import 'dart:developer';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:get/get.dart';
 import 'package:plant_identify_care/models/model_firebase.dart';
-import 'package:firebase_storage/firebase_storage.dart' as firebase_storage ;
+import 'package:firebase_storage/firebase_storage.dart' as firebase_storage;
 
 class FirebaseController extends GetxController {
   List<ModelFirebase> comeToFlowers = [];
   RxBool isLoading = true.obs;
+
+  List<ModelFirebase> filteredFlowers = [];
 
   @override
   void onInit() {
@@ -37,5 +39,12 @@ class FirebaseController extends GetxController {
         firebase_storage.FirebaseStorage.instance;
     String downloadURL = await storage.refFromURL(imagePath).getDownloadURL();
     return downloadURL;
+  }
+
+  void searchFlowers(String query) {
+    filteredFlowers = comeToFlowers
+        .where((flower) =>
+            flower.turkishName.toLowerCase().contains(query.toLowerCase()))
+        .toList();
   }
 }
