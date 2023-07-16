@@ -33,6 +33,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
       }
 
       try {
+        
         UserCredential userCredential =
             await FirebaseAuth.instance.createUserWithEmailAndPassword(
           email: _email.text,
@@ -42,6 +43,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
         User? user = FirebaseAuth.instance.currentUser;
         await user!.updateDisplayName("${_firstName.text} ${_lastName.text}");
 
+        // kullanıcının adını güncelledikten sonra durum güncelleme
+        setState(() {});
+
         await FirebaseFirestore.instance
             .collection('users')
             .doc(userCredential.user!.uid)
@@ -50,6 +54,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
           'lastName': _lastName.text,
           'birthDate': _birthDate.toString(),
         });
+       
+
 
         if (mounted) {
           setState(() {
@@ -85,6 +91,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
       }
     }
   }
+
 
   Future<void> _selectDate(BuildContext context) async {
     final DateTime? picked = await showDatePicker(

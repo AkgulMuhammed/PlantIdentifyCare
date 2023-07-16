@@ -72,15 +72,20 @@ class HeaderWithSearchBox extends StatelessWidget {
               child: Row(
                 children: <Widget>[
                   Expanded(
-                    child: TextField(
-                      onChanged: (value) {},
-                      decoration: InputDecoration(
-                        hintText: "Ara",
-                        hintStyle: TextStyle(
-                          color: kPrimaryColor.withOpacity(0.5),
+                    child: GestureDetector(
+                      onTap: () {
+                        
+                      },
+                      child: TextField(
+                        onChanged: (value) {},
+                        decoration: InputDecoration(
+                          hintText: "Ara",
+                          hintStyle: TextStyle(
+                            color: kPrimaryColor.withOpacity(0.5),
+                          ),
+                          enabledBorder: InputBorder.none,
+                          focusedBorder: InputBorder.none,
                         ),
-                        enabledBorder: InputBorder.none,
-                        focusedBorder: InputBorder.none,
                       ),
                     ),
                   ),

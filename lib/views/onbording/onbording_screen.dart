@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:plant_identify_care/views/auth/auth_screen.dart';
 import 'package:plant_identify_care/views/onbording/components/dot_indicator.dart';
 import 'package:plant_identify_care/views/onbording/components/onboard_content.dart';
 
@@ -70,7 +71,8 @@ class _OnBordingScreenState extends State<OnBordingScreen> {
                   child: ElevatedButton(
                       onPressed: () {
                         if (_pageIndex == onboardData.length - 1) {
-                          Navigator.pushReplacementNamed(context, '/navpage');
+                         Navigator.pushReplacement(
+        context, MaterialPageRoute(builder: (_) => const AuthScreen()));
                         } else {
                           _pageController.nextPage(
                               duration: const Duration(milliseconds: 300),

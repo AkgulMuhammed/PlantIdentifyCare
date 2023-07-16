@@ -21,17 +21,36 @@ class BackgroundContainer extends StatelessWidget {
     );
   }
 }
-
 class AppTitle extends StatelessWidget {
   const AppTitle({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return const Padding(
-      padding: EdgeInsets.only(top: 25, bottom: 15),
-      child: Text(
-        "Plant Identify Care",
-        style: TextStyle(fontSize: 30, fontWeight: FontWeight.w600, color: Colors.white),
+    return Padding(
+      padding: const EdgeInsets.only(top: 25, bottom: 10),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          Padding(
+            padding: const EdgeInsets.only(left: 15),
+            child: GestureDetector(
+              onTap: () {
+                Navigator.pop(context);
+              },
+              child: const Icon(
+                Icons.arrow_back,
+                size: 30,
+                color: kBackgroundColor,
+              ),
+            ),
+          ),
+          const SizedBox(width: 45),
+          const Text(
+            "Plant Identify Care",
+            style: TextStyle(
+                fontSize: 30, fontWeight: FontWeight.w600, color: Colors.white),
+          ),
+        ],
       ),
     );
   }

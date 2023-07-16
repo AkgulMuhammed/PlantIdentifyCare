@@ -3,15 +3,16 @@
 import 'package:flutter/material.dart';
 
 class PlantTitle extends StatelessWidget {
-  const PlantTitle({Key? key}) : super(key: key);
+  final String title;
+  const PlantTitle({Key? key, required this.title}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return const Padding(
-      padding: EdgeInsets.only(top: 15),
+    return  Padding(
+      padding: const EdgeInsets.only(top: 15),
       child: Text(
-        "Yılan Bitkisi",
-        style: TextStyle(fontSize: 25, fontWeight: FontWeight.w600, color: Colors.black),
+        title,
+        style: const TextStyle(fontSize: 25, fontWeight: FontWeight.w600, color: Colors.black),
       ),
     );
   }

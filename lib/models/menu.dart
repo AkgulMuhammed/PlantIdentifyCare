@@ -4,7 +4,7 @@ import 'package:plant_identify_care/views/home/home_screen.dart';
 import 'package:plant_identify_care/views/plantDoctor/plant_doctor_screen.dart';
 import 'package:plant_identify_care/views/plant_heal.dart';
 import 'package:plant_identify_care/views/profile_page.dart';
-import 'package:plant_identify_care/views/search_screen.dart';
+import 'package:plant_identify_care/views/search/search_screen.dart';
 
 class Menu {
   final String title;

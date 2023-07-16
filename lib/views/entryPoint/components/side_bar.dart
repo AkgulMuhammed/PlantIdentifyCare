@@ -25,7 +25,7 @@ class _SideBarState extends State<SideBar> {
     String userName = user?.displayName ?? 'Misafir';
     String userEmail = user?.email ?? '';
     if (userEmail.length > 16) {
-      userEmail = userEmail.substring(0, 16) + "...";
+      userEmail = "${userEmail.substring(0, 16)}...";
     }
     return SafeArea(
       child: Container(

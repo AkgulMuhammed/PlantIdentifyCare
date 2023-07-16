@@ -1,26 +1,39 @@
 import 'package:flutter/material.dart';
 import 'package:plant_identify_care/constants/app_colors.dart';
+import 'package:plant_identify_care/models/model_firebase.dart';
+import 'package:plant_identify_care/views/plantDetail/components/custom_image_network.dart';
+import 'package:plant_identify_care/views/plantDetail/plant_detail_screen.dart';
 
 class FeaturedPlants extends StatelessWidget {
+  final List<ModelFirebase> flowersList;
   const FeaturedPlants({
     Key? key,
+    required this.flowersList,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      scrollDirection: Axis.horizontal,
-      child: Row(
-        children: <Widget>[
-          FeaturePlantCard(
-            image: "assets/images/bottom_img_1.png",
-            press: () {},
-          ),
-          FeaturePlantCard(
-            image: "assets/images/bottom_img_2.png",
-            press: () {},
-          ),
-        ],
+    return SizedBox(
+      height: 340,
+      child: ListView.builder(
+        primary: true,
+        shrinkWrap: true,
+        itemCount: flowersList.length,
+        scrollDirection: Axis.horizontal,
+        itemBuilder: (BuildContext context, int index) {
+          return FeaturePlantCard(
+            image: flowersList[index].image,
+            press: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) =>
+                      PlantDetails(detailsFlower: flowersList[index]),
+                ),
+              );
+            },
+          );
+        },
       ),
     );
   }
@@ -46,16 +59,15 @@ class FeaturePlantCard extends StatelessWidget {
           left: kDefaultPadding,
           top: kDefaultPadding / 2,
           bottom: kDefaultPadding / 2,
+          right: kDefaultPadding,
         ),
         width: size.width * 0.8,
-        height: 185,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(10),
-          image: DecorationImage(
-            fit: BoxFit.cover,
-            image: AssetImage(image),
-          ),
-        ),
+        child: ClipRRect(
+            borderRadius: BorderRadius.circular(10),
+            child: CustomImageNetwork(
+              image,
+              isFeaturedPlants: true,
+            )),
       ),
     );
   }

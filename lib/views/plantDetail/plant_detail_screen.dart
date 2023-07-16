@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
-
-import 'components/image_circle.dart';
-import 'components/plant_title.dart';
-import 'components/background_container.dart';
-import 'components/plant_description.dart';
-import 'components/grey_line.dart';
-import 'components/doctor_button.dart';
-import 'components/indicator_row.dart';
+import 'package:plant_identify_care/models/model_firebase.dart';
+import 'package:plant_identify_care/views/plantDetail/components/background_container.dart';
+import 'package:plant_identify_care/views/plantDetail/components/doctor_button.dart';
+import 'package:plant_identify_care/views/plantDetail/components/grey_line.dart';
+import 'package:plant_identify_care/views/plantDetail/components/image_circle.dart';
+import 'package:plant_identify_care/views/plantDetail/components/indicator_row.dart';
+import 'package:plant_identify_care/views/plantDetail/components/plant_description.dart';
+import 'package:plant_identify_care/views/plantDetail/components/plant_title.dart';
 
 class PlantDetails extends StatefulWidget {
-  const PlantDetails({super.key});
-
+  const PlantDetails({super.key, required this.detailsFlower});
+  final ModelFirebase detailsFlower;
   @override
   State<PlantDetails> createState() => _PlantDetailsState();
 }
@@ -18,42 +18,50 @@ class PlantDetails extends StatefulWidget {
 class _PlantDetailsState extends State<PlantDetails> {
   @override
   Widget build(BuildContext context) {
+    var detail = widget.detailsFlower;
     return Scaffold(
-      body: ListView(
-        children: const [
-          Stack(
-            children: [
-              BackgroundContainer(),
-              Column(
+      body: SafeArea(
+        child: Stack(
+          children: [
+            const BackgroundContainer(),
+            SingleChildScrollView(
+              child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  SizedBox(height: 25,),
-                  AppTitle(),
-                 SizedBox(height: 25,),
-                  ImageCircle(),
-                  PlantTitle(),
-                  PlantDescription(),
-                  SizedBox(height: 20),
-                  GreyLine(),
-                  SizedBox(height: 20),
-                  IndicatorRow(
-                      title1: "Popülerlik",
-                      percent1: 0.5,
-                      title2: "Saksı Uyumluluğu",
-                      percent2: 0.9),
-                  SizedBox(height: 20),
-                  IndicatorRow(
-                      title1: "Bakım İster mi ?",
-                      percent1: 0.2,
-                      title2: "Evde Yetiştirilebilir mi ?",
-                      percent2: 0.7),
-                  SizedBox(height: 15),
-                  DoctorButton()
+                  const SizedBox(height: 25),
+                  const AppTitle(),
+                  // SelectionButtons(),
+                  const SizedBox(height: 20),
+                  ImageCircle(image: detail.image),
+                  PlantTitle(title: detail.turkishName),
+                   PlantDescription(subTitle: detail.subTitle), // açıklaması eklenecek
+                  const SizedBox(height: 20),
+                  const GreyLine(),
+                  const SizedBox(height: 20),
+                  Column(
+                    children: [
+                      IndicatorRow(
+                        title1: "Popülerlik",
+                        percent1: detail.popular,
+                        title2: "Saksı Uyumluluğu",
+                        percent2: detail.potCompatibility,
+                      ),
+                      const SizedBox(height: 20),
+                      IndicatorRow(
+                        title1: "Bakım İster mi ?",
+                        percent1: detail.needCare,
+                        title2: "Evde Yetiştirilebilir mi ?",
+                        percent2: detail.homeSuitable,
+                      ),
+                      const SizedBox(height: 15),
+                      const DoctorButton(),
+                    ],
+                  )
                 ],
-              )
-            ],
-          )
-        ],
+              ),
+            )
+          ],
+        ),
       ),
     );
   }

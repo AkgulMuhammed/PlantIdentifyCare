@@ -4,6 +4,8 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:plant_identify_care/constants/app_colors.dart';
 import 'package:plant_identify_care/views/auth/auth_screen.dart';
+import 'package:plant_identify_care/views/entryPoint/entry_point.dart';
+import 'package:plant_identify_care/views/search/search_screen.dart';
 
 import 'firebase_options.dart';
 
@@ -41,7 +43,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
         colorScheme: ColorScheme.fromSeed(seedColor: kPrimaryColor),
       ),
-      home: const AuthScreen(),
+      home: const EntryPoint(),
     );
   }
 }
