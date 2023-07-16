@@ -20,7 +20,7 @@ class ImageCircle extends StatelessWidget {
               color: Colors.white,
               border: Border.all(
                   color: kTertiaryColor, width: 15)),
-          child: Image.asset("assets/images/demo_plant.png"),
+          child: Image.asset("assets/images/demo_plant.png",fit: BoxFit.contain),
         ));
   }
 }

@@ -4,7 +4,7 @@ import 'package:plant_identify_care/constants/app_colors.dart';
 import 'package:plant_identify_care/models/menu.dart';
 
 import '../../../utils/rive_utils.dart';
-import '../../login/auth_screen.dart';
+import '../../auth/auth_screen.dart';
 import 'info_card.dart';
 import 'side_menu.dart';
 
@@ -19,9 +19,14 @@ class SideBar extends StatefulWidget {
 
 class _SideBarState extends State<SideBar> {
   Menu selectedSideMenu = sidebarMenus.first;
-  final mail = FirebaseAuth.instance.currentUser;
+  final User? user = FirebaseAuth.instance.currentUser;
   @override
   Widget build(BuildContext context) {
+    String userName = user?.displayName ?? 'Misafir';
+    String userEmail = user?.email ?? '';
+    if (userEmail.length > 16) {
+      userEmail = userEmail.substring(0, 16) + "...";
+    }
     return SafeArea(
       child: Container(
         width: 288,
@@ -38,8 +43,8 @@ class _SideBarState extends State<SideBar> {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               InfoCard(
-                name: "Muhammed Akgül",
-                mail: mail!.email.toString(),
+                name: userName,
+                mail: userEmail,
               ),
               Padding(
                 padding: const EdgeInsets.only(top: 32, bottom: 16, right: 24),

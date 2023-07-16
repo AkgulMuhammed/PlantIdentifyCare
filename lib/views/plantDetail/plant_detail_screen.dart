@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import 'components/selection_buttons.dart';
 import 'components/image_circle.dart';
 import 'components/plant_title.dart';
 import 'components/background_container.dart';
@@ -28,8 +27,9 @@ class _PlantDetailsState extends State<PlantDetails> {
               Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
+                  SizedBox(height: 25,),
                   AppTitle(),
-                  SelectionButtons(),
+                 SizedBox(height: 25,),
                   ImageCircle(),
                   PlantTitle(),
                   PlantDescription(),

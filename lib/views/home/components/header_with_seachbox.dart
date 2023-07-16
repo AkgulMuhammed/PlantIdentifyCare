@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:plant_identify_care/constants/app_colors.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class HeaderWithSearchBox extends StatelessWidget {
   const HeaderWithSearchBox({
@@ -12,6 +13,8 @@ class HeaderWithSearchBox extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final User? user = FirebaseAuth.instance.currentUser;
+    final String? firstName = user?.displayName?.split(' ')[0];
     return Container(
       margin: const EdgeInsets.only(bottom: kDefaultPadding * 2.5),
       height: size.height * 0.2,
@@ -34,7 +37,7 @@ class HeaderWithSearchBox extends StatelessWidget {
             child: Row(
               children: <Widget>[
                 Text(
-                  'Merhaba\nMuhammed!',
+                  'Merhaba\n${firstName ?? 'Misafir'}!',
                   style: Theme.of(context).textTheme.headlineSmall?.copyWith(
                       color: Colors.white, fontWeight: FontWeight.bold),
                 ),

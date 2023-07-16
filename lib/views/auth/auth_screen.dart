@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:plant_identify_care/views/entryPoint/entry_point.dart';
-import 'package:plant_identify_care/views/login/login_or_signup.dart';
+import 'package:plant_identify_care/views/auth/login_or_signup.dart';
 
 class AuthScreen extends StatelessWidget {
   const AuthScreen({super.key});
