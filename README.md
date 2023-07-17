@@ -68,20 +68,7 @@ Bu sprint sonucunda, PlantIdentifyCare uygulaması yapay zeka destekli bir chat 
 
 - **Sprint board **: Sprint board screenshotları:
 - 
-  ![Backlog 1]<img width="1710" alt="Ekran Resmi 2023-07-03 23 21 01" src="https://github.com/AkgulMuhammed/PlantIdentifyCare/assets/113055548/8a699245-98bc-445a-a9e5-f85d6907fd8f">
-
-![Backlog 2]<img width="1710" alt="Ekran Resmi 2023-07-03 23 21 53" src="https://github.com/AkgulMuhammed/PlantIdentifyCare/assets/113055548/8677f0bf-5f7a-46b9-a257-3736dca4ea24">
-
-
-- **Ürün Durumu**: Ekran görüntüleri:
-
-  ![Screenshot 1]
-  <img width="490" alt="Ekran Resmi 2023-07-03 23 38 42" src="https://github.com/AkgulMuhammed/PlantIdentifyCare/assets/113055548/49d3a3a7-c7da-409b-af78-875f98d98509">
-
-  ![Screenshot 2]!
-  <img src="https://github.com/AkgulMuhammed/PlantIdentifyCare/assets/113055548/e9ae740d-b65e-4758-a3d6-405766547121" width="350"/>
-
-
+  ![Backlog 1](https://github.com/AkgulMuhammed/PlantIdentifyCare/assets/113055548/16991697-fbb7-4fa1-8814-5faf9e2f5cad)
 
 
 
@@ -116,18 +103,20 @@ Bu sprint sonucunda, PlantIdentifyCare uygulaması Bitki Tanıma ve Bitki Bakım
 
 - **Sprint board **: Sprint board screenshotları:
 - 
-  ![Backlog 1]<img width="1710" alt="Ekran Resmi 2023-07-03 23 21 01" src="https://github.com/AkgulMuhammed/PlantIdentifyCare/assets/113055548/8a699245-98bc-445a-a9e5-f85d6907fd8f">
-
-![Backlog 2]<img width="1710" alt="Ekran Resmi 2023-07-03 23 21 53" src="https://github.com/AkgulMuhammed/PlantIdentifyCare/assets/113055548/8677f0bf-5f7a-46b9-a257-3736dca4ea24">
+  ![Backlog 1]<img width="1710" alt="Ekran Resmi 2023-07-17 22 54 08" src="https://github.com/AkgulMuhammed/PlantIdentifyCare/assets/113055548/ed7fa689-77e0-4143-a443-573f728ae895">
 
 
 - **Ürün Durumu**: Ekran görüntüleri:
+<img width="446" alt="Ekran Resmi 2023-07-17 00 47 31" src="https://github.com/AkgulMuhammed/PlantIdentifyCare/assets/113055548/44815d50-ce35-419e-9c8b-b9a1959036a6">
+<img width="490" alt="Ekran Resmi 2023-07-17 00 47 17" src="https://github.com/AkgulMuhammed/PlantIdentifyCare/assets/113055548/53ea8a04-c682-4880-a2de-0a4b3e97a168">
+<img width="490" alt="Ekran Resmi 2023-07-17 00 47 11" src="https://github.com/AkgulMuhammed/PlantIdentifyCare/assets/113055548/b87bdc2c-abc5-4024-a205-f618e42db521">
+<img width="490" alt="Ekran Resmi 2023-07-17 00 46 55" src="https://github.com/AkgulMuhammed/PlantIdentifyCare/assets/113055548/2c57162f-0d43-49fe-9314-1005590ef658">
+<img width="490" alt="Ekran Resmi 2023-07-17 00 46 48" src="https://github.com/AkgulMuhammed/PlantIdentifyCare/assets/113055548/00c67f1b-9eac-4d5b-8a5b-6799ee1f85a3">
+<img width="490" alt="Ekran Resmi 2023-07-17 00 46 44" src="https://github.com/AkgulMuhammed/PlantIdentifyCare/assets/113055548/6a1e45c0-9182-4af0-a5ec-df7b246e717e">
+<img width="490" alt="Ekran Resmi 2023-07-17 00 46 39" src="https://github.com/AkgulMuhammed/PlantIdentifyCare/assets/113055548/a5ca6e21-015a-48b6-8cca-a4f0642976c8">
+<img width="490" alt="Ekran Resmi 2023-07-17 00 46 32" src="https://github.com/AkgulMuhammed/PlantIdentifyCare/assets/113055548/1eb28c91-4e17-493f-ab94-ed957060e537">
 
-  ![Screenshot 1]
-  <img width="490" alt="Ekran Resmi 2023-07-03 23 38 42" src="https://github.com/AkgulMuhammed/PlantIdentifyCare/assets/113055548/49d3a3a7-c7da-409b-af78-875f98d98509">
 
-  ![Screenshot 2]!
-  <img src="https://github.com/AkgulMuhammed/PlantIdentifyCare/assets/113055548/e9ae740d-b65e-4758-a3d6-405766547121" width="350"/>
 
 ### Sprint Review:
 Alınan kararlar: Bu sprintin ardından, bitki tanıma ve bakım rehberi özelliklerinin uygulamaya dahil edilmesinin kullanıcı deneyimini büyük ölçüde geliştireceğine karar verildi.
