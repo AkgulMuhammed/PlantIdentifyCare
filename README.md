@@ -97,5 +97,45 @@ Alınan kararlar: Bu sprintin ardından, uygulamanın daha işlevsel ve kullanı
 Proje yönetim şablonuna, tüm görevler (tasklar) kullanıcı hikayeleri (user stories) altında düzenlenmiştir
 
 
-# Sprint 3
-...
+# Sprint 3: Bitki Tanıma ve Bakım Rehberi Özellikleri
+
+## Sprint Hedefi
+Bu sprintte, PlantIdentifyCare uygulamamın önemli özellikleri olan Bitki Tanıma ve Bitki Bakım Rehberi özelliklerini tamamlamayı planladım. Bitki Tanıma özelliği, kullanıcıların bitki fotoğraflarını yükleyerek veya çekerek bitkinin ne olduğunu belirlemesine yardımcı olacak. Bitki Bakım Rehberi özelliği ise, bitkilerin nasıl bakılacağına dair ayrıntılı bilgi sağlayacak.
+
+## Sprint İçinde Tamamlanması Tahmin Edilen Puan
+Bu sprint için belirlenen puan, 100 puan.
+
+## Puan Tamamlama Mantığı
+Toplamda projenin tamamlanması gereken 380 puanlık bir backlog bulunmaktadır. Bu sprintin sonunda, Bitki Tanıma ve Bitki Bakım Rehberi özelliklerini tamamlamayı hedefleyerek 100 puanlık bir ilerleme yapmayı planlıyorum.
+
+## Backlog Düzeni ve Story Seçimleri
+Bu sprintte, bitki severler için önemli olan Bitki Tanıma ve Bitki Bakım Rehberi özelliklerine odaklandım. Bu özelliklerin tamamlanması, uygulamanın kullanıcılara daha fazla değer sunmasını sağlayacak.
+
+## Ürün Durumu
+Bu sprint sonucunda, PlantIdentifyCare uygulaması Bitki Tanıma ve Bitki Bakım Rehberi özelliklerine kavuştu. Kullanıcılar artık bitkileri tanıyabilir ve nasıl bakacakları konusunda bilgi alabilirler.
+
+- **Sprint board **: Sprint board screenshotları:
+- 
+  ![Backlog 1]<img width="1710" alt="Ekran Resmi 2023-07-03 23 21 01" src="https://github.com/AkgulMuhammed/PlantIdentifyCare/assets/113055548/8a699245-98bc-445a-a9e5-f85d6907fd8f">
+
+![Backlog 2]<img width="1710" alt="Ekran Resmi 2023-07-03 23 21 53" src="https://github.com/AkgulMuhammed/PlantIdentifyCare/assets/113055548/8677f0bf-5f7a-46b9-a257-3736dca4ea24">
+
+
+- **Ürün Durumu**: Ekran görüntüleri:
+
+  ![Screenshot 1]
+  <img width="490" alt="Ekran Resmi 2023-07-03 23 38 42" src="https://github.com/AkgulMuhammed/PlantIdentifyCare/assets/113055548/49d3a3a7-c7da-409b-af78-875f98d98509">
+
+  ![Screenshot 2]!
+  <img src="https://github.com/AkgulMuhammed/PlantIdentifyCare/assets/113055548/e9ae740d-b65e-4758-a3d6-405766547121" width="350"/>
+
+### Sprint Review:
+Alınan kararlar: Bu sprintin ardından, bitki tanıma ve bakım rehberi özelliklerinin uygulamaya dahil edilmesinin kullanıcı deneyimini büyük ölçüde geliştireceğine karar verildi.
+
+### Sprint Retrospective:
+- Özelliklerin zamanında tamamlanması için, her sprintin başında belirli bir plan yapmalı ve bu plana uygun şekilde ilerlemeliyim.
+- Bitki Tanıma ve Bitki Bakım Rehberi özelliklerinin kullanıcılar üzerindeki etkisini anlamak için, kullanıcı geri bildirimlerini aktif bir şekilde toplamalı ve analiz etmeliyim.
+- Sprintler arasında düzenli bir şekilde ilerlemek ve projeyi başarılı bir şekilde tamamlamak için, tüm görevlere eşit ve adil bir şekilde odaklanmalıyım.
+
+### Diğer Notlar:
+Proje yönetim şablonuna, tüm görevler (tasklar) kullanıcı hikayeleri (user stories) altında düzenlenmiştir
