@@ -21,7 +21,7 @@ PlantIdentifyCare, bitki severler için tasarlanmış bir bitki tanıma ve bakı
 Bitki severler, doğa gezginleri, bitki yetiştiricileri ve bitki bakımına ilgi duyan herkes.
 
 ## Product Backlog URL
-[Product Backlog Linki]()
+[Product Backlog Linki]https://makgul.atlassian.net/jira/software/projects/TASK/boards/1
 
 # Sprint 1: Fikir Bulma ve Başlangıç
 
@@ -126,5 +126,5 @@ Alınan kararlar: Bu sprintin ardından, bitki tanıma ve bakım rehberi özelli
 - Bitki Tanıma ve Bitki Bakım Rehberi özelliklerinin kullanıcılar üzerindeki etkisini anlamak için, kullanıcı geri bildirimlerini aktif bir şekilde toplamalı ve analiz etmeliyim.
 - Sprintler arasında düzenli bir şekilde ilerlemek ve projeyi başarılı bir şekilde tamamlamak için, tüm görevlere eşit ve adil bir şekilde odaklanmalıyım.
 
-### Diğer Notlar:
+### Sprint Notları:
 Proje yönetim şablonuna, tüm görevler (tasklar) kullanıcı hikayeleri (user stories) altında düzenlenmiştir
